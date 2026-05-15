@@ -1,0 +1,21 @@
+# Personal media — do not commit
+media/*.jpg
+media/*.jpeg
+media/*.avi
+media/*.png
+media/*.mp4
+
+libraries/
+
+# Manufacturer reference example — not part of the project
+ESP32-S3-Touch-LCD-1.28-Test/
+
+# Arduino build artifacts
+build/
+*.bin
+*.elf
+*.map
+
+# OS
+.DS_Store
+Thumbs.db
