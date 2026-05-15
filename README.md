@@ -5,7 +5,7 @@
 It is punny, because it is a badge pin (*bedž* in Serbian), built from scrappy parts (*nabudžen* in Serbian), and it is definitely sticks out more than your average pin (*budža* in Serbian).
 
 
-**[→ Flash firmware &amp; upload media in your browser](https://artbit.github.io/budz/)** — no software install needed (Chrome/Edge).
+**[Install Budž from your browser →](https://artbit.github.io/budz/)** — no software needed, works in Chrome and Edge.
 
 ## Bill of Materials
 
