@@ -5,6 +5,8 @@
 It is punny, because it is a badge pin (*bedž* in Serbian), built from scrappy parts (*nabudžen* in Serbian), and it is definitely sticks out more than your average pin (*budža* in Serbian).
 
 
+**[→ Flash firmware &amp; upload media in your browser](https://artbit.github.io/budz/)** — no software install needed (Chrome/Edge).
+
 ## Bill of Materials
 
 | Qty | Part | Notes |
@@ -13,6 +15,7 @@ It is punny, because it is a badge pin (*bedž* in Serbian), built from scrappy 
 | 1 | LiPo battery, 3.7 V, JST 1.25 mm (or a small power bank) | Capacity to taste; board has onboard charging via USB-C |
 | 1 | USB-C cable | Programming and charging |
 | 1 | Pin badge back / enclosure | 3D print or fabricate to suit |
+| 1 | Li-Po battery 105 mAh, 3.7 V, micro JST/SPA connector *(optional)* | ~$4 — board has onboard USB-C charging |
 
 ## Features
 
@@ -23,7 +26,7 @@ It is punny, because it is a badge pin (*bedž* in Serbian), built from scrappy 
 - Swipe up for configuration (local WiFi for uploading media, brightness, app info)
 - Double-tap anywhere to sleep (backlight off); double-tap to wake
 - Media sorted alphabetically
-- ~9.4 MB LittleFS partition for media storage
+- ~13 MB LittleFS partition for media storage
 
 ## Gestures
 

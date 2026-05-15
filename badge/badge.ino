@@ -372,7 +372,19 @@ static bool showInfoStrip() {
 }
 
 // ── WiFi upload ───────────────────────────────────────────────────────────────
+static void addCorsHeaders() {
+    server.sendHeader("Access-Control-Allow-Origin",  "*");
+    server.sendHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+    server.sendHeader("Access-Control-Allow-Headers", "Content-Type");
+}
+
+static void handleCorsPrelight() {
+    addCorsHeaders();
+    server.send(204);
+}
+
 static void serveUploadForm() {
+    addCorsHeaders();
     server.send(200, "text/html",
         "<!DOCTYPE html><html><head>"
         "<meta name='viewport' content='width=device-width,initial-scale=1'>"
@@ -424,6 +436,7 @@ static void handleFileUpload() {
 }
 
 static void handleUploadComplete() {
+    addCorsHeaders();
     if (uploadAborted) {
         server.send(400, "text/plain", "Rejected: AVI must be exactly 240x240 pixels");
         return;
@@ -443,6 +456,7 @@ static void handleUploadComplete() {
 static void startWifi() {
     WiFi.softAP(wifiSSID);
     server.on("/", HTTP_GET, serveUploadForm);
+    server.on("/upload", HTTP_OPTIONS, handleCorsPrelight);
     server.on("/upload", HTTP_POST, handleUploadComplete, handleFileUpload);
     server.begin(); wifiEnabled = true;
     Serial.printf("AP: %s — 192.168.4.1\n", wifiSSID);
@@ -651,7 +665,11 @@ void loop() {
         g = playVideo(items[currentIndex].path);
     } else {
         g = readGesture();
-        if (g == NONE) { enterLightSleep(); return; }
+        if (g == NONE) {
+            if (wifiEnabled) { server.handleClient(); delay(10); }
+            else enterLightSleep();
+            return;
+        }
     }
 
     if (g == SWIPE_UP) {

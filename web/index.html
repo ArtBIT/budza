@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Budz</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div class="logo"><span class="dot">●</span> Budz</div>
+      <nav>
+        <button class="tab active" data-tab="flash">Flash</button>
+        <button class="tab" data-tab="media">Media</button>
+      </nav>
+    </header>
+
+    <main>
+      <!-- ── Flash ── -->
+      <section class="panel active" id="panel-flash">
+        <div class="card">
+          <h2>Install firmware on your Budz</h2>
+          <ol class="steps">
+            <li>
+              <span class="step-num">1</span>
+              <div>
+                <strong>Plug in your badge</strong>
+                <p class="muted">Connect it to your computer with a USB-C cable.</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">2</span>
+              <div>
+                <strong>Enter flash mode</strong>
+                <p class="muted">Hold <kbd>BOOT</kbd>, tap <kbd>RESET</kbd>, release <kbd>BOOT</kbd>. The badge screen will go dark — that's normal.</p>
+              </div>
+            </li>
+            <li>
+              <span class="step-num">3</span>
+              <div>
+                <strong>Click the button below</strong>
+                <p class="muted">A port picker will appear. Select the one that looks like your badge:</p>
+                <ul class="port-hints">
+                  <li><span class="port-os">Windows</span> <code>COM3</code>, <code>COM4</code>, … — any new COM port that appeared after plugging in</li>
+                  <li><span class="port-os">Linux</span> <code>/dev/ttyACM0</code> or <code>/dev/ttyUSB0</code></li>
+                  <li><span class="port-os">Either</span> <code>USB JTAG/serial debug unit</code> or <code>USB Serial Device</code></li>
+                </ul>
+                <p class="muted">Flashing takes ~30 s. The badge reboots automatically when done.</p>
+              </div>
+            </li>
+          </ol>
+          <div class="flash-btn-wrap">
+            <esp-web-install-button manifest="manifest.json">
+              <button slot="activate" class="btn-primary">Connect &amp; Flash</button>
+            </esp-web-install-button>
+          </div>
+          <p class="muted small">Requires Chrome or Edge (WebSerial API).</p>
+        </div>
+
+        <details class="card details-card">
+          <summary>Building the firmware yourself</summary>
+          <p class="muted" style="margin-top:12px">
+            In Arduino IDE open <code>badge/badge.ino</code>, then choose
+            <strong>Sketch → Export Compiled Binary</strong> (<kbd>Alt</kbd>+<kbd>Ctrl</kbd>+<kbd>S</kbd>).
+            Then from the repo root run:
+          </p>
+          <pre class="code-block">make firmware</pre>
+          <p class="muted" style="margin-top:10px">
+            That copies the three required files into <code>web/firmware/</code>. Alternatively, copy them manually:
+          </p>
+          <ul class="file-list-static" style="margin-top:8px">
+            <li><code>badge.ino.bootloader.bin</code> → <code>firmware/bootloader.bin</code></li>
+            <li><code>badge.ino.partitions.bin</code> → <code>firmware/partitions.bin</code></li>
+            <li><code>badge.ino.bin</code> → <code>firmware/firmware.bin</code></li>
+          </ul>
+        </details>
+      </section>
+
+      <!-- ── Media ── -->
+      <section class="panel" id="panel-media">
+        <div class="card">
+          <h2>Add photos &amp; videos to your Budz</h2>
+          <p class="muted">
+            Make sure your badge's WiFi is on: swipe <strong>up</strong> on the badge → tap <strong>WiFi ON</strong>.
+            Then connect your computer to the <strong>Budz-XXXX</strong> network and click Upload below.
+          </p>
+        </div>
+
+        <div class="card row">
+          <label for="badge-ip">Badge address</label>
+          <input id="badge-ip" type="text" value="192.168.4.1" spellcheck="false" autocomplete="off">
+        </div>
+
+        <div class="drop-zone" id="drop-zone">
+          <div class="drop-icon">⊕</div>
+          <p>Drop photos or videos here<br><span class="muted small">JPEG · PNG · MP4 · MOV · AVI</span></p>
+          <button class="btn-secondary" id="browse-btn">Browse files</button>
+          <input type="file" id="file-input" multiple
+            accept=".jpg,.jpeg,.png,.mp4,.mov,.avi" hidden>
+        </div>
+
+        <div id="file-list"></div>
+
+        <div class="action-bar" id="action-bar" hidden>
+          <button class="btn-primary" id="upload-btn">Convert &amp; Upload All</button>
+          <span class="muted small" id="ffmpeg-status"></span>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
