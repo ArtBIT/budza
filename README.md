@@ -52,7 +52,7 @@ It is punny, because it is a badge pin (*bedž* in Serbian), built from scrappy 
 | USB Mode | USB-CDC and JTAG |
 | Upload Mode | UART0 / Hardware CDC |
 
-The partition scheme is defined in `badge/partitions.csv` (3 MB app + 9.4 MB LittleFS).
+The partition scheme is defined in `budz/partitions.csv` (3 MB app + 9.4 MB LittleFS).
 Arduino IDE picks it up automatically when the sketch folder contains a `partitions.csv` —
 no manual installation needed. Just select **Partition Scheme → Custom** in the Tools menu,
 or add an explicit entry to `boards.txt` so it appears with a friendly name:
@@ -96,12 +96,12 @@ After extracting, open
 `FSPI = 1` in ESP-IDF 5.x causes `REG_SPI_BASE(1)` to return `0`, crashing at
 address `0x10` on the first SPI write. Using `2` maps to the correct hardware register.
 
-The `badge/User_Setup.h` in this repo overrides TFT_eSPI's pin configuration
+The `budz/User_Setup.h` in this repo overrides TFT_eSPI's pin configuration
 automatically — no other changes to the extracted library files are needed.
 
 ### 3. Compile and upload
 
-Open `badge/badge.ino` in Arduino IDE. Select the board settings above and upload.
+Open `budz/budz.ino` in Arduino IDE. Select the board settings above and upload.
 
 **First upload:** the device enters download mode automatically only if your USB-to-serial
 adapter supports RTS/DTR reset. With native USB CDC (ttyACM0), hold **BOOT**, press
@@ -234,7 +234,7 @@ libraries/           — not included in this repo; extract from Waveshare demo 
 
 ## Pin reference
 
-Defined in `badge/badge.ino` — matches the Waveshare ESP32-S3-Touch-LCD-1.28 schematic.
+Defined in `budz/budz.ino` — matches the Waveshare ESP32-S3-Touch-LCD-1.28 schematic.
 
 | Signal | GPIO |
 |--------|------|

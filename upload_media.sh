@@ -31,8 +31,8 @@ MEDIA_DIR="${1:-./media}"
 PORT="${2:-/dev/ttyUSB0}"
 IMAGE="/tmp/badge_littlefs.bin"
 
-# ── Partition layout — must match arduino/badge/partitions.csv ─────────────────
-FS_OFFSET=0x310000   # badge/partitions.csv — immediately after app0
+# ── Partition layout — must match budz/partitions.csv ────────────────────────
+FS_OFFSET=0x310000   # budz/partitions.csv — immediately after app0
 FS_SIZE=0xCE0000     # ~13 MB
 
 BLOCK_SIZE=4096
