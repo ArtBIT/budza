@@ -7,13 +7,11 @@ Buy [Waveshare ESP32-S3-Touch-LCD-1.28](https://www.waveshare.com/wiki/ESP32-S3-
 
 ## Bill of Materials
 
-| Qty | Part | Notes |
-|-----|------|-------|
-| 1 | [Waveshare ESP32-S3-Touch-LCD-1.28](https://www.waveshare.com/wiki/ESP32-S3-Touch-LCD-1.28) | Main board — includes display, touch, and IMU |
-| 1 | LiPo battery, 3.7 V, JST 1.25 mm (or a small power bank) | Capacity to taste; board has onboard charging via USB-C |
-| 1 | USB-C cable | Programming and charging |
-| 1 | Pin badge back / enclosure | 3D print or fabricate to suit |
-| 1 | Li-Po battery 105 mAh, 3.7 V, micro JST/SPA connector *(optional)* | ~$4 — board has onboard USB-C charging |
+| Qty | Part | Notes | Price |
+|-----|------|-------|-------|
+| 1 | [Waveshare ESP32-S3-Touch-LCD-1.28](https://www.waveshare.com/wiki/ESP32-S3-Touch-LCD-1.28) | Main board — includes display, touch, and IMU | ~$30 |
+| 1 | USB-C cable | Programming and charging | ~$0 |
+| 1 | Li-Po battery 105 mAh, 3.7 V, micro JST/SPA connector *(optional)* | board has onboard USB-C charging | ~$4 |
 
 ## Features
 
