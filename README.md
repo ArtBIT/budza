@@ -1,6 +1,6 @@
-# Budz
+# Budž
 
-**Budz** is a wearable digital badge built on the **Waveshare ESP32-S3-Touch-LCD-1.28** — a 1.28″ round 240×240 IPS display with capacitive touch. Swipe through JPEG stills and looping MJPEG videos. Double-tap to sleep/wake.
+**Budž** is a wearable digital badge built on the **Waveshare ESP32-S3-Touch-LCD-1.28** — a 1.28″ round 240×240 IPS display with capacitive touch. Swipe through JPEG stills and looping MJPEG videos. Double-tap to sleep/wake.
 
 It is punny, because it is a badge pin (*bedž* in Serbian), built from scrappy parts (*nabudžen* in Serbian), and it is definitely sticks out more than your average pin (*budža* in Serbian).
 
