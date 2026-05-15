@@ -38,7 +38,7 @@ A 240×240 JPEG at quality 90 (what the web app exports):
 
 Rough real-world estimate: 400–600 images. 
 
-Videos eat the same pool — a 5-second MJPEG clip at 24 fps is typically 3–8 MB, so a handful of videos quickly dominates.
+Videos eat the same pool — a 5-second MJPEG clip at 24 fps is typically 3–8 MB, so a handful of videos quickly dominates. Aim for ultra short (2s) looping videos.
 
 ## Gestures
 
