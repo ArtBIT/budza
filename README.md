@@ -24,6 +24,22 @@ Buy [Waveshare ESP32-S3-Touch-LCD-1.28](https://www.waveshare.com/wiki/ESP32-S3-
 - Media sorted alphabetically
 - ~13 MB LittleFS partition for media storage
 
+## Capacity
+
+The partition is 0xCE0000 = 13,500,416 bytes (~12.9 MB).
+
+A 240×240 JPEG at quality 90 (what the web app exports):
+
+| Content type | Typical size | Can Fit |
+|--------------|--------------|---------|
+| Photo / complex | ~35 KB |	~385 |
+| Mixed	| ~20 KB | ~675 |
+| Simple graphic	| ~10 KB | ~1350 |
+
+Rough real-world estimate: 400–600 images. 
+
+Videos eat the same pool — a 5-second MJPEG clip at 24 fps is typically 3–8 MB, so a handful of videos quickly dominates.
+
 ## Gestures
 
 | Gesture | Action |
